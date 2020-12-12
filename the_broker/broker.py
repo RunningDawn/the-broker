@@ -3,55 +3,53 @@
 # import asyncio
 import discord
 import json
-# import random
+import os
+import pathlib
+import tomlkit
+from discord.ext.commands import Bot
 
 
-class TheBroker(discord.Client):
-    token = json.load(open('./token.json'))['token']
+class TheBroker(Bot):
+    def __init__(self, *args, prefix=None, **kwargs):
+
+        prefix = [";;"]
+        self.config = {
+            "command_prefix": prefix,
+            "prefix": prefix,
+        }
+        super().__init__(*args, **kwargs, command_prefix=self.config['command_prefix'])
+        self.config['token'] = json.load(open('./token.json'))['token']
+        with open(file=str(pathlib.Path(__file__).parent.parent) + "/pyproject.toml") as f:
+            self.config['version'] = tomlkit.parse(string=f.read())['tool']['poetry']['version']
+
+        for file in os.listdir("the_broker/cogs"):
+            if file.endswith(".py"):
+                name = file[:-3]
+                self.load_extension(f"the_broker.cogs.{name}")
 
     async def on_ready(self):
         print('\nLogged in as <' + str(self.user.name) + '> ID: ' + str(self.user.id))
         print('~~~~~~')
 
+    async def on_message(self, msg):
+        if not self.is_ready() or msg.author.bot:  # or not permissions.can_handle(msg, "send_messages"):
+            return
 
+        await self.process_commands(msg)
+
+
+# ==============================================================================
 async def run_bot():
-    intents = discord.Intents.default()
-    intents.members = True
-    bot = TheBroker(intents=intents)
-    await bot.start(bot.token)
-# tokendata = json.load(open('../token.json'))
-
-# @client.event
-# async def on_ready():
-#     print('Logged in as')
-#     print(client.user.name)
-#     print(client.user.id)
-#     print('-----------')
-
-# @client.async_event
-# async def on_message(message):
-#     if message.content.startswith('!test'):
-#         counter = 0
-#         tmp = await client.send_message(message.channel, 'Calculating messages...')
-#         async for log in client.logs_from(message.channel, limit=100):
-#             if log.author == message.author:
-#                 counter+=1
-#         await client.edit_message(tmp, 'You have {} messages.'.format(counter))
-#     elif message.content.startswith('!sleep'):
-#         await asyncio.sleep(5)
-#         await client.send_message(message.channel, 'Done sleeping')
-#     elif message.content.startswith('!insult'):
-#         outmsg = "    "
-#         theuser = message.server.get_member_named(str(message.mentions[0]))
-#         outmsg += theuser.mention
-#         t1 = ['lazy','stupid','insecure','idiotic','slimy','slutty','smelly','pompous','communist','dicknose','pig-eating','racist','elitist','white trash','drug-loving','butterface','tone deaf','ugly','creepy']
-#         t2 = ['douche','ass','turd','rectum','butt','cock','shit','crotch','bitch','turd','prick','slut','taint','fuck','dick','goner','shart','nut','sphincter']
-#         t3 = ['pilot','canoe','captain','pirate','hammer','knob','box','jockey','nazi','waffle','goblin','blossum','biscuit','clown','socket','monster','hound','dragon','balloon']
-#         w1 = random.choice(t1)
-#         if w1[0] == 'a' or w1[0] == 'e' or w1[0] == 'i' or w1[0] == 'u':
-#             outmsg += " is an "+w1+" "+random.choice(t2)+" "+random.choice(t3)+"."
-#         else:
-#             outmsg += " is a "+w1+" "+random.choice(t2)+" "+random.choice(t3)+"."
-#         await client.send_message(message.channel, outmsg)
-
-# client.run(tokendata["token"])
+    broker_bot = TheBroker(
+        # owner_ids=config()["owners"],
+        command_attrs=dict(hidden=True),
+        # help_command=HelpFormat(),
+        intents=discord.Intents(  # kwargs found at https://discordpy.readthedocs.io/en/latest/api.html?highlight=intents#discord.Intents
+            guilds=True,
+            members=True,
+            messages=True,
+            reactions=True,
+            # resences=True
+        )
+    )
+    await broker_bot.start(broker_bot.config['token'])
