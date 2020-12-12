@@ -2,19 +2,23 @@
 
 # import asyncio
 import discord
-# import json
+import json
 # import random
 
-client = discord.Client()
+
+class TheBroker(discord.Client):
+    token = json.load(open('./token.json'))['token']
+
+    async def on_ready(self):
+        print('\nLogged in as <' + str(self.user.name) + '> ID: ' + str(self.user.id))
+        print('~~~~~~')
 
 
-def math():
-    output = 1 + 1
-    return output
-
-
-def run_bot():
-    pass
+async def run_bot():
+    intents = discord.Intents.default()
+    intents.members = True
+    bot = TheBroker(intents=intents)
+    await bot.start(bot.token)
 # tokendata = json.load(open('../token.json'))
 
 # @client.event

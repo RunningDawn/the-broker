@@ -102,6 +102,13 @@ function do_deploy_install {
 
 
 ################################################################################
+# prod
+function do_prod {
+    ENV="prod" PYTHONUNBUFFERED="true" poetry run python -u app.py
+}
+
+
+################################################################################
 # refresh
 # function do_refresh {
 
@@ -133,11 +140,15 @@ elif [ "$ACTION" == "dev" ]; then
 elif [ "$ACTION" == "deploy_install" ]; then
     do_deploy_install
 
+elif [ "$ACTION" == "prod" ]; then
+    do_prod
+
 else
     echo -e "~~~ \e[33mUSAGE:\e[39m ~~~"
     echo -e "\e[93mbash do.sh init  # initialization of application dependencies"
     echo -e "\e[93mbash do.sh test  # run system tests and coverage"
     echo -e "\e[93mbash do.sh dev  # run dev server"
     echo -e "\e[93mbash do.sh deploy_install  # installs only non-dev dependencies"
+    echo -e "\e[93mbash do.sh prod  # run dev server"
     # echo -e "\e[93mbash do.sh refresh  # refreshes the database"
 fi

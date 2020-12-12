@@ -1,3 +1,4 @@
+import asyncio
 import os
 import pathlib
 import signal
@@ -31,8 +32,11 @@ def run_broker_dev():
     reloader = Watcher()
     try:
         if os.environ.get("BROKER_AUTORELOAD") == "true":
-            t = threading.Thread(target=run_bot, args=())
+            loop = asyncio.get_event_loop()
+            loop.create_task(run_bot())
+            t = threading.Thread(target=loop.run_forever, args=())
             t.setDaemon(True)
+
             with reloader:
                 t.start()
                 reloader.run()
@@ -47,4 +51,10 @@ def run_broker():
     '''Runs production environment of the code
     '''
     print("VERSION: v" + __version__)
-    run_bot()
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        loop.run_until_complete(run_bot())
+    except KeyboardInterrupt:
+        pass
