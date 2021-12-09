@@ -26,8 +26,13 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-setup": "yarn install",
     "dev-log": "nodemon bot.js | bunyan",
-    "dev": "nodemon bot.js"
+    "dev": "nodemon bot.js",
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "prod-setup": "yarn install --production=true",
+    "prod": "nodemon bot.js"
   }
 }

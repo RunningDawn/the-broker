@@ -10,7 +10,6 @@ ___
 ## Planned functionality:
 - [x] Send insults
 - [x] Assign roles to users on their request
-- [ ] Send memes based on search to channel
 - [ ] Perform actions of a music bot
     - [ ] Join chat channel
     - [ ] Play music
@@ -21,17 +20,17 @@ ___
     - [ ] Edit default player volume
 - [ ] Auto-post when user goes live on twitch
 - [ ] Track user contributions
-- [ ] Track when user leaves server
+- [x] Track when user joins and leaves server
 
 
 ___
 ## Initialize
 ```bash
-./do.sh init
+yarn dev-setup
 ```
 
 ## Run
 ```bash
-./do.sh dev
+yarn dev
 ```
 
