@@ -1,8 +1,0 @@
-{
-    "python.linting.flake8Path": ".venv/Scripts/flake8",
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true,
-    "files.exclude": {
-        "token.json": true
-    }
-}

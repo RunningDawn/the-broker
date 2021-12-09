@@ -4,22 +4,12 @@ A Discord bot created exclusively for Running Dawn.
 ___
 ## Requirements
 
-- Python 3.8+
-- Poetry 1.1.4+
+Node 16+ LTS
 
 ___
 ## Planned functionality:
-- [] Unify utility scripts
-    - [] init
-        - [] Linux compatible
-        - [] Mac compatible
-        - [x] Windows compatible
-    - [] runserver
-        - [] Linux compatible
-        - [] Mac compatible
-        - [] Windows compatible
-- [] Send insults
-- [] Assign roles to users on their request
+- [x] Send insults
+- [x] Assign roles to users on their request
 - [] Send memes based on search to channel
 - [] Perform actions of a music bot
     - [] Join chat channel
@@ -31,6 +21,7 @@ ___
     - [] Edit default player volume
 - [] Auto-post when user goes live on twitch
 - [] Track user contributions
+- [] Track when user leaves server
 
 
 ___

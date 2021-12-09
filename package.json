@@ -1,0 +1,33 @@
+{
+  "name": "the-broker",
+  "version": "0.1.0",
+  "description": "Running Dawn discord bot",
+  "main": "app.js",
+  "author": "Vealor",
+  "license": "All rights reserved",
+  "repository": "git@github.com:RunningDawn/the-broker.git",
+  "bugs": {
+    "url": "https://github.com/RunningDawn/the-broker/issues"
+  },
+  "homepage": "https://github.com/RunningDawn/the-broker#readme",
+  "engines": {
+    "node": ">=16.6.0"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.9.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "bunyan": "^1.8.15",
+    "eslint": "^8.4.1",
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-log": "nodemon bot.js | bunyan",
+    "dev": "nodemon bot.js"
+  }
+}
