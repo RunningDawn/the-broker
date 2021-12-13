@@ -1,5 +1,6 @@
 // "role": "Game Name" -> converts "Game Name" to channel name as "game-name"
 const games_mmo = {
+  "Albion Online": "Albion Online",
   "Ashes of Creation": "Ashes of Creation",
   "Black Desert Online": "Black Desert",
   "Camelot Unchained": "Camelot Unchained",
