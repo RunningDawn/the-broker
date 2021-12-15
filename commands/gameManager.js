@@ -254,10 +254,9 @@ module.exports = {
         const mod = interaction.member.guild.members.cache.find(n => n.user.username == "Vealor" && n.user.discriminator == "8793").user.id;
         game_channel_welcome_text = `\n\nOops! Looks like this game has no channel for it - ask <@${mod}> for help!`;
       }
-      console.log(has_role);
       if (has_role) {
         // already has role
-        console.log(`${interaction.member.username} tried to join ${game_name}`);
+        console.log(`${interaction.member.user.username} tried to join ${game_name}`);
         interaction.reply({
           content: `‎\n\n**You are already a part of ${game_name}!** ${game_channel_welcome_text}`,
         });
@@ -265,7 +264,7 @@ module.exports = {
 
       } else {
         // success assign role
-        console.log(`${interaction.member.username} joined ${game_name}`);
+        console.log(`${interaction.member.user.username} joined ${game_name}`);
         await interaction.member.roles.add(role);
         interaction.reply({
           content: `‎\n\n**Welcome to ${game_name}!** ${game_channel_welcome_text}`,
@@ -279,10 +278,9 @@ module.exports = {
       const role = interaction.member.guild.roles.cache.find(r => r.name == game_role);
       const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
       const game_name = eval(`games_${interaction.options.getSubcommand()}`)[game_role];
-      console.log(has_role);
       if (!has_role) {
         // already doesn't have role
-        console.log(`${interaction.member.username} tried to leave ${game_name}`);
+        console.log(`${interaction.member.user.username} tried to leave ${game_name}`);
         interaction.reply({
           content: `‎\n\n**You are already not a part of ${game_name}!**`,
         });
@@ -290,7 +288,7 @@ module.exports = {
 
       } else {
         // success remove role
-        console.log(`${interaction.member.username} left ${game_name}`);
+        console.log(`${interaction.member.user.username} left ${game_name}`);
         await interaction.member.roles.remove(role);
         interaction.reply({
           content: `‎\n\n**You have left ${game_name}!**`,
