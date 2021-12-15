@@ -241,7 +241,6 @@ module.exports = {
     } else if (interaction.options.getSubcommandGroup() === "join") {
 
       // attempt assign role
-      console.log(interaction.options.getSubcommand());
       const game_role = interaction.options.getString("game");
       const role = interaction.member.guild.roles.cache.find(r => r.name == game_role);
       const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
@@ -258,6 +257,7 @@ module.exports = {
       console.log(has_role);
       if (has_role) {
         // already has role
+        console.log(`${interaction.member.username} tried to join ${game_name}`);
         interaction.reply({
           content: `‎\n\n**You are already a part of ${game_name}!** ${game_channel_welcome_text}`,
         });
@@ -265,6 +265,7 @@ module.exports = {
 
       } else {
         // success assign role
+        console.log(`${interaction.member.username} joined ${game_name}`);
         await interaction.member.roles.add(role);
         interaction.reply({
           content: `‎\n\n**Welcome to ${game_name}!** ${game_channel_welcome_text}`,
@@ -281,13 +282,15 @@ module.exports = {
       console.log(has_role);
       if (!has_role) {
         // already doesn't have role
+        console.log(`${interaction.member.username} tried to leave ${game_name}`);
         interaction.reply({
           content: `‎\n\n**You are already not a part of ${game_name}!**`,
         });
 
 
       } else {
-        // success assign role
+        // success remove role
+        console.log(`${interaction.member.username} left ${game_name}`);
         await interaction.member.roles.remove(role);
         interaction.reply({
           content: `‎\n\n**You have left ${game_name}!**`,
