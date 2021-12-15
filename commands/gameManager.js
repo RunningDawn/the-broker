@@ -27,11 +27,6 @@ module.exports = {
       .setName("join")
       .setDescription("Join a game channel!")
 
-      // ALL
-      .addSubcommand((cmd) => cmd
-        .setName("all")
-        .setDescription("join all game channels"))
-
       // MMO
       .addSubcommand((cmd) => cmd
         .setName("mmo")
@@ -120,18 +115,18 @@ module.exports = {
           .setName("game")
           .setDescription("choose a game")
           .setRequired(true)
-          .addChoices(flatten_games(games_mobile)))))
+          .addChoices(flatten_games(games_mobile))))
+
+      // ALL
+      .addSubcommand((cmd) => cmd
+        .setName("all")
+        .setDescription("join all game channels")))
 
     // ## LEAVE ##
     .addSubcommandGroup((group) => group
       .setName("leave")
       .setDescription("Leave a game channel!")
 
-      // ALL
-      .addSubcommand((cmd) => cmd
-        .setName("all")
-        .setDescription("leave all game channels"))
-
       // MMO
       .addSubcommand((cmd) => cmd
         .setName("mmo")
@@ -220,7 +215,12 @@ module.exports = {
           .setName("game")
           .setDescription("choose a game")
           .setRequired(true)
-          .addChoices(flatten_games(games_mobile))))),
+          .addChoices(flatten_games(games_mobile))))
+
+    // ALL
+      .addSubcommand((cmd) => cmd
+        .setName("all")
+        .setDescription("leave all game channels"))),
 
 
   async execute(interaction) {
@@ -255,6 +255,9 @@ module.exports = {
 
       // join all games
       if (interaction.options.getSubcommand() === "all") {
+        interaction.reply({
+          content: "‎\n\n**You have joined all the game channels!**",
+        });
         console.log(`--!! ${interaction.member.user.username} is joining all channels`);
         for (const genre in games_list) {
           for (const game in games_list[genre]) {
@@ -267,14 +270,9 @@ module.exports = {
               console.log(`${interaction.member.user.username} joined ${game}`);
               await interaction.member.roles.add(role);
             }
-
           }
         }
         console.log(`--!! ${interaction.member.user.username} joined all channels`);
-        interaction.reply({
-          content: "‎\n\n**You have joined all the game channels!**",
-        });
-
 
       } else {
         // get role information for single role
@@ -313,6 +311,9 @@ module.exports = {
 
       // leave all games
       if (interaction.options.getSubcommand() === "all") {
+        interaction.reply({
+          content: "‎\n\n**You have left all the game channels!**",
+        });
         console.log(`--!! ${interaction.member.user.username} is leaving all channels`);
         for (const genre in games_list) {
           for (const game in games_list[genre]) {
@@ -325,13 +326,10 @@ module.exports = {
               console.log(`${interaction.member.user.username} left ${game}`);
               await interaction.member.roles.remove(role);
             }
-
           }
         }
         console.log(`--!! ${interaction.member.user.username} left all channels`);
-        interaction.reply({
-          content: "‎\n\n**You have left all the game channels!**",
-        });
+
       } else {
         // get role information for single role
         const game_role = interaction.options.getString("game");
