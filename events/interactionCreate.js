@@ -7,6 +7,11 @@ module.exports = {
     try {
       await command.execute(interaction);
     } catch (err) {
+      console.log("~~ERR~~");
+      console.log(interaction.commandName);
+      console.log(interaction.options._group);
+      console.log(interaction.options._subcommand);
+      console.log(interaction.options._hoistedOptions);
       if (err) console.error(err);
       await interaction.reply({
         content: "An error occurred while executing that command.",
