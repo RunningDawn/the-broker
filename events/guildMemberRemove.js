@@ -7,7 +7,7 @@ module.exports = {
     const channel = member.guild.channels.cache.find(c => c.name === "member-exchange");
 
     let outmsg = `:x: <${getFullTimestamp()}> ${member.user} left the server`;
-    console.log(`SRV => ${member.username} LEFT`);
+    console.log(`SRV => ${member.user.username} LEFT`);
     if (member.nickname) {
       outmsg += ` with the nickname "${member.nickname}"`;
     }

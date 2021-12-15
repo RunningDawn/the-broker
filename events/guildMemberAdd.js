@@ -7,7 +7,7 @@ module.exports = {
     const channel = member.guild.channels.cache.find(c => c.name === "member-exchange");
 
     let outmsg = `:white_check_mark: <${getFullTimestamp()}> ${member.user} joined the server`;
-    console.log(`SRV => ${member.username} JOINED`);
+    console.log(`SRV => ${member.user.username} JOINED`);
 
 
 
