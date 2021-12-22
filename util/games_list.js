@@ -9,6 +9,7 @@ const games_mmo = {
   "EVE Online": "EVE Online",
   "FFXIV": "FFXIV",
   "Guild Wars 2": "Guild Wars 2",
+  "Mortal Online": "Mortal Online",
   "New World": "New World",
   "TERA": "TERA",
   "Warframe": "Warframe",
