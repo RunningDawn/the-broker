@@ -33,6 +33,7 @@ const games_moba = {
 };
 const games_rpg = {
   "Dauntless": "Dauntless",
+  "Divinity Original Sin": "Divinity Original Sin",
   "Diablo": "Diablo",
   "Elder Scrolls": "Elder Scrolls",
   "Grim Dawn": "Grim Dawn",
