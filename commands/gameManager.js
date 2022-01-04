@@ -253,7 +253,7 @@ module.exports = {
     } else if (interaction.options.getSubcommandGroup() === "join") {
       // join games
 
-      // join all games
+      // BATCH join all games
       if (interaction.options.getSubcommand() === "all") {
         interaction.reply({
           content: "‎\n\n**You have joined all the game channels!**",
@@ -277,39 +277,66 @@ module.exports = {
       } else {
         // get role information for single role
         const game_role = interaction.options.getString("game");
-        const role = interaction.member.guild.roles.cache.find(r => r.name == game_role);
-        const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
-        const game_name = eval(`games_${interaction.options.getSubcommand()}`)[game_role];
-        const game_channel = `${game_name.toLowerCase().replaceAll(" ","-")}`;
-        const game_channel_link = interaction.member.guild.channels.cache.find(c => c.name == game_channel);
-        let game_channel_welcome_text;
-        if (game_channel_link) {
-          game_channel_welcome_text = `\n\nCheck out ${game_channel_link}`;
+        if (game_role === "ALL") {
+          // BATCH join all roles of game type
+          const game_type = interaction.options.getSubcommand();
+          const game_type_list = eval(`games_${game_type}`);
+          interaction.reply({
+            content: `‎\n\n**You have joined all the ${game_type} game channels!**`,
+          });
+          console.log(`--!! ${interaction.member.user.username} is joining all ${game_type} channels`);
+          for (const game in game_type_list) {
+            if (game === "ALL") continue;
+
+            const role = interaction.member.guild.roles.cache.find(r => r.name == game);
+            const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
+            if (has_role) {
+              console.log(`${interaction.member.user.username} tried to join ${game}`);
+            } else {
+              console.log(`${interaction.member.user.username} joined ${game}`);
+              await interaction.member.roles.add(role);
+            }
+          }
+          console.log(`--!! ${interaction.member.user.username} joined all ${game_type} channels`);
+
         } else {
-          const mod = interaction.member.guild.members.cache.find(n => n.user.username == "Vealor" && n.user.discriminator == "8793").user.id;
-          game_channel_welcome_text = `\n\nOops! Looks like this game has no channel for it - ask <@${mod}> for help!`;
+          // join single role
+          const role = interaction.member.guild.roles.cache.find(r => r.name == game_role);
+          const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
+          const game_name = eval(`games_${interaction.options.getSubcommand()}`)[game_role];
+          const game_channel = `${game_name.toLowerCase().replaceAll(" ","-")}`;
+          const game_channel_link = interaction.member.guild.channels.cache.find(c => c.name == game_channel);
+          // specific join welcome text
+          let game_channel_welcome_text;
+          if (game_channel_link) {
+            game_channel_welcome_text = `\n\nCheck out ${game_channel_link}`;
+          } else {
+            const mod = interaction.member.guild.members.cache.find(n => n.user.username == "Vealor" && n.user.discriminator == "8793").user.id;
+            game_channel_welcome_text = `\n\nOops! Looks like this game has no channel for it - ask <@${mod}> for help!`;
+          }
+
+          if (has_role) {
+            // already has role
+            console.log(`${interaction.member.user.username} tried to join ${game_name}`);
+            interaction.reply({
+              content: `‎\n\n**You are already a part of ${game_name}!** ${game_channel_welcome_text}`,
+            });
+          } else {
+            // success assign role
+            console.log(`${interaction.member.user.username} joined ${game_name}`);
+            await interaction.member.roles.add(role);
+            interaction.reply({
+              content: `‎\n\n**Welcome to ${game_name}!** ${game_channel_welcome_text}`,
+            });
+          }
         }
 
-        if (has_role) {
-          // already has role
-          console.log(`${interaction.member.user.username} tried to join ${game_name}`);
-          interaction.reply({
-            content: `‎\n\n**You are already a part of ${game_name}!** ${game_channel_welcome_text}`,
-          });
-        } else {
-          // success assign role
-          console.log(`${interaction.member.user.username} joined ${game_name}`);
-          await interaction.member.roles.add(role);
-          interaction.reply({
-            content: `‎\n\n**Welcome to ${game_name}!** ${game_channel_welcome_text}`,
-          });
-        }
       }
 
     } else if (interaction.options.getSubcommandGroup() === "leave") {
       // leave games
 
-      // leave all games
+      // BATCH leave all games
       if (interaction.options.getSubcommand() === "all") {
         interaction.reply({
           content: "‎\n\n**You have left all the game channels!**",
@@ -333,24 +360,51 @@ module.exports = {
       } else {
         // get role information for single role
         const game_role = interaction.options.getString("game");
-        const role = interaction.member.guild.roles.cache.find(r => r.name == game_role);
-        const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
-        const game_name = eval(`games_${interaction.options.getSubcommand()}`)[game_role];
 
-        if (!has_role) {
-          // already doesn't have role
-          console.log(`${interaction.member.user.username} tried to leave ${game_name}`);
+        if (game_role === "ALL") {
+          // BATCH leave all roles of game type
+          const game_type = interaction.options.getSubcommand();
+          const game_type_list = eval(`games_${game_type}`);
           interaction.reply({
-            content: `‎\n\n**You are already not a part of ${game_name}!**`,
+            content: `‎\n\n**You have left all the ${game_type} game channels!**`,
           });
+          console.log(`--!! ${interaction.member.user.username} is leaving all ${game_type} channels`);
+          for (const game in game_type_list) {
+            if (game === "ALL") continue;
+
+            const role = interaction.member.guild.roles.cache.find(r => r.name == game);
+            const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
+            if (!has_role) {
+              console.log(`${interaction.member.user.username} tried to leave ${game}`);
+            } else {
+              console.log(`${interaction.member.user.username} left ${game}`);
+              await interaction.member.roles.remove(role);
+            }
+          }
+          console.log(`--!! ${interaction.member.user.username} left all ${game_type} channels`);
+
         } else {
-          // success remove role
-          console.log(`${interaction.member.user.username} left ${game_name}`);
-          await interaction.member.roles.remove(role);
-          interaction.reply({
-            content: `‎\n\n**You have left ${game_name}!**`,
-          });
+          // leave single role
+          const role = interaction.member.guild.roles.cache.find(r => r.name == game_role);
+          const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
+          const game_name = eval(`games_${interaction.options.getSubcommand()}`)[game_role];
+
+          if (!has_role) {
+            // already doesn't have role
+            console.log(`${interaction.member.user.username} tried to leave ${game_name}`);
+            interaction.reply({
+              content: `‎\n\n**You are already not a part of ${game_name}!**`,
+            });
+          } else {
+            // success remove role
+            console.log(`${interaction.member.user.username} left ${game_name}`);
+            await interaction.member.roles.remove(role);
+            interaction.reply({
+              content: `‎\n\n**You have left ${game_name}!**`,
+            });
+          }
         }
+
       }
     }
   }

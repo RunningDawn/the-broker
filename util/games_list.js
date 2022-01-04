@@ -1,5 +1,6 @@
 // "role": "Game Name" -> converts "Game Name" to channel name as "game-name"
 const games_mmo = {
+  "ALL": "ALL",
   "Albion Online": "Albion Online",
   "Ashes of Creation": "Ashes of Creation",
   "Black Desert Online": "Black Desert",
@@ -17,6 +18,7 @@ const games_mmo = {
 
 };
 const games_fps = {
+  "ALL": "ALL",
   "Apex": "Apex",
   "Battlefield": "Battlefield",
   "CSGO": "CSGO",
@@ -26,12 +28,15 @@ const games_fps = {
   "Valorant": "Valorant",
 };
 const games_rts = {
+  "ALL": "ALL",
   "Stellaris": "Stellaris",
 };
 const games_moba = {
+  "ALL": "ALL",
   "League of Legends": "League of Legends",
 };
 const games_rpg = {
+  "ALL": "ALL",
   "Dauntless": "Dauntless",
   "Divinity Original Sin": "Divinity Original Sin",
   "Diablo": "Diablo",
@@ -41,6 +46,7 @@ const games_rpg = {
   "Path of Exile": "Path of Exile",
 };
 const games_survival = {
+  "ALL": "ALL",
   "7 Days to Die": "7 Days to Die",
   "ARK": "ARK",
   "Icarus": "Icarus",
@@ -49,6 +55,7 @@ const games_survival = {
   "The Forest": "The Forest",
 };
 const games_craftlike = {
+  "ALL": "ALL",
   "Astroneer": "Astroneer",
   "Craftopia": "Craftopia",
   "ECO": "ECO",
@@ -60,10 +67,12 @@ const games_craftlike = {
   "Valheim": "Valheim",
 };
 const games_roguelike = {
+  "ALL": "ALL",
   "Deep Rock Galactic": "Deep Rock Galactic",
   "Gunfire Reborn": "Gunfire Reborn",
 };
 const games_mobile = {
+  "ALL": "ALL",
   "LotR rise to war": "LotR rise to war",
 };
 
