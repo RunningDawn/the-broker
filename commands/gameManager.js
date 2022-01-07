@@ -261,6 +261,7 @@ module.exports = {
         console.log(`--!! ${interaction.member.user.username} is joining all channels`);
         for (const genre in games_list) {
           for (const game in games_list[genre]) {
+            if (game === "ALL") continue;
 
             const role = interaction.member.guild.roles.cache.find(r => r.name == game);
             const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
@@ -344,6 +345,7 @@ module.exports = {
         console.log(`--!! ${interaction.member.user.username} is leaving all channels`);
         for (const genre in games_list) {
           for (const game in games_list[genre]) {
+            if (game === "ALL") continue;
 
             const role = interaction.member.guild.roles.cache.find(r => r.name == game);
             const has_role = interaction.member.roles.cache.find(r => r.name == role.name) !== undefined;
