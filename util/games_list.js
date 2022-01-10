@@ -10,12 +10,12 @@ const games_mmo = {
   "EVE Online": "EVE Online",
   "FFXIV": "FFXIV",
   "Guild Wars 2": "Guild Wars 2",
+  "Lost Ark": "Lost Ark",
   "Mortal Online": "Mortal Online",
   "New World": "New World",
   "TERA": "TERA",
   "Warframe": "Warframe",
   "WoW": "World of Warcraft",
-
 };
 const games_fps = {
   "ALL": "ALL",
