@@ -22,6 +22,7 @@ const games_fps = {
   "Apex": "Apex",
   "Battlefield": "Battlefield",
   "CSGO": "CSGO",
+  "Destiny 2": "Destiny 2",
   "Escape from Tarkov": "Escape from Tarkov",
   "Overwatch": "Overwatch",
   "PubG": "PubG",
