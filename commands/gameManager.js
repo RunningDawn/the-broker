@@ -241,7 +241,9 @@ module.exports = {
       Object.entries(games_list).forEach(([category,games]) => {
         pretty_games += `\n${category}`;
         Object.entries(games).forEach(([game, ]) =>{
-          pretty_games += `\n\t\t${game}`;
+          if (game !== "ALL") {
+            pretty_games += `\n\t\t${game}`;
+          }
         });
       });
       interaction.reply({
