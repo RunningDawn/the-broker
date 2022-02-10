@@ -51,6 +51,7 @@ const games_survival = {
   "7 Days to Die": "7 Days to Die",
   "Among Us": "Among Us",
   "ARK": "ARK",
+  "Fallout 76": "Fallout 76",
   "Icarus": "Icarus",
   "Last Oasis": "Last Oasis",
   "Rust": "Rust",
