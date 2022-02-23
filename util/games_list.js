@@ -41,6 +41,7 @@ const games_rpg = {
   "Dauntless": "Dauntless",
   "Divinity Original Sin": "Divinity Original Sin",
   "Diablo": "Diablo",
+  "Elden Ring": "Elden Ring",
   "Elder Scrolls": "Elder Scrolls",
   "Grim Dawn": "Grim Dawn",
   "Monster Hunter": "Monster Hunter",
