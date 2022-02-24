@@ -226,7 +226,7 @@ module.exports = {
   async execute(interaction) {
 
     // check channel name
-    const request_channel = interaction.member.guild.channels.cache.find(c => c.name == "join-a-game-channel");
+    const request_channel = interaction.member.guild.channels.cache.find(c => c.name == "game-notify-opt-in");
 
     if (!(interaction.channelId == request_channel.id)) {
       // wrong channel
