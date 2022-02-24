@@ -1,31 +1,22 @@
 // "role": "Game Name" -> converts "Game Name" to channel name as "game-name"
 const games_mmo = {
   "ALL": "ALL",
-  "Albion Online": "Albion Online",
   "Ashes of Creation": "Ashes of Creation",
-  "Black Desert Online": "Black Desert",
-  "Camelot Unchained": "Camelot Unchained",
   "Crowfall": "Crowfall",
-  "Elyon": "Elyon",
   "EVE Online": "EVE Online",
   "FFXIV": "FFXIV",
   "Guild Wars 2": "Guild Wars 2",
   "Lost Ark": "Lost Ark",
   "Mortal Online": "Mortal Online",
   "New World": "New World",
-  "TERA": "TERA",
   "Warframe": "Warframe",
   "WoW": "World of Warcraft",
 };
 const games_fps = {
   "ALL": "ALL",
   "Apex": "Apex",
-  "Battlefield": "Battlefield",
-  "CSGO": "CSGO",
-  "Destiny 2": "Destiny 2",
   "Escape from Tarkov": "Escape from Tarkov",
   "Overwatch": "Overwatch",
-  "PubG": "PubG",
   "Valorant": "Valorant",
 };
 const games_rts = {
@@ -42,7 +33,6 @@ const games_rpg = {
   "Divinity Original Sin": "Divinity Original Sin",
   "Diablo": "Diablo",
   "Elden Ring": "Elden Ring",
-  "Elder Scrolls": "Elder Scrolls",
   "Grim Dawn": "Grim Dawn",
   "Monster Hunter": "Monster Hunter",
   "Path of Exile": "Path of Exile",
@@ -52,8 +42,6 @@ const games_survival = {
   "7 Days to Die": "7 Days to Die",
   "Among Us": "Among Us",
   "ARK": "ARK",
-  "Fallout 76": "Fallout 76",
-  "Icarus": "Icarus",
   "Last Oasis": "Last Oasis",
   "Rust": "Rust",
   "The Forest": "The Forest",
@@ -61,7 +49,6 @@ const games_survival = {
 const games_craftlike = {
   "ALL": "ALL",
   "Astroneer": "Astroneer",
-  "Craftopia": "Craftopia",
   "ECO": "ECO",
   "Factorio": "Factorio",
   "Minecraft": "Minecraft",
