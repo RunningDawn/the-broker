@@ -16,7 +16,9 @@ const games_fps = {
   "ALL": "ALL",
   "Apex": "Apex",
   "Escape from Tarkov": "Escape from Tarkov",
+  "Foxhole": "Foxhole",
   "Overwatch": "Overwatch",
+  "Planetside 2": "Planetside 2",
   "Valorant": "Valorant",
 };
 const games_rts = {
