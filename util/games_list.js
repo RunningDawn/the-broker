@@ -10,11 +10,11 @@ const games_mmo = {
   "Mortal Online": "Mortal Online",
   "New World": "New World",
   "Warframe": "Warframe",
-  "WoW": "World of Warcraft",
 };
 const games_fps = {
   "ALL": "ALL",
   "Apex": "Apex",
+  "Destiny 2": "Destiny 2",
   "Escape from Tarkov": "Escape from Tarkov",
   "Foxhole": "Foxhole",
   "Overwatch": "Overwatch",
