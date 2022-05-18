@@ -314,7 +314,7 @@ module.exports = {
           if (game_channel_link) {
             game_channel_welcome_text = `\n\nCheck out ${game_channel_link}`;
           } else {
-            const all_the_games = interaction.member.guild.channels.cache.find(c => c.name == "game-notify-opt-in");
+            const all_the_games = interaction.member.guild.channels.cache.find(c => c.name == "all-the-games");
             const mod = interaction.member.guild.members.cache.find(n => n.user.username == "Vealor" && n.user.discriminator == "8793").user.id;
             game_channel_welcome_text = `\n\nHead on over to ${all_the_games} and make a thread to discuss!! \n\nFeel free to ask <@${mod}> if you need any help`;
           }
