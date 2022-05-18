@@ -47,6 +47,7 @@ const games_survival = {
   "Last Oasis": "Last Oasis",
   "Rust": "Rust",
   "The Forest": "The Forest",
+  "V-Rising": "V-Rising",
 };
 const games_craftlike = {
   "ALL": "ALL",
