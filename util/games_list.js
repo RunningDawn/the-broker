@@ -19,6 +19,7 @@ const games_fps = {
   "Foxhole": "Foxhole",
   "Overwatch": "Overwatch",
   "Planetside 2": "Planetside 2",
+  "R6 Siege": "R6 Siege",
   "Valorant": "Valorant",
 };
 const games_rts = {
