@@ -32,8 +32,6 @@ const games_moba = {
 };
 const games_rpg = {
   "ALL": "ALL",
-  "Dauntless": "Dauntless",
-  "Divinity Original Sin": "Divinity Original Sin",
   "Diablo": "Diablo",
   "Elden Ring": "Elden Ring",
   "Grim Dawn": "Grim Dawn",
@@ -53,6 +51,7 @@ const games_survival = {
 const games_craftlike = {
   "ALL": "ALL",
   "Astroneer": "Astroneer",
+  "Core Keeper": "Core Keeper",
   "ECO": "ECO",
   "Factorio": "Factorio",
   "Minecraft": "Minecraft",
