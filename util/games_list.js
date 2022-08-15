@@ -10,6 +10,7 @@ const games_mmo = {
   "Mortal Online": "Mortal Online",
   "New World": "New World",
   "Warframe": "Warframe",
+  "World of Warcraft": "World of Warcraft",
 };
 const games_fps = {
   "ALL": "ALL",
