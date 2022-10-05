@@ -3,6 +3,7 @@ const games_mmo = {
   "ALL": "ALL",
   "Ashes of Creation": "Ashes of Creation",
   "Crowfall": "Crowfall",
+  "Dual Universe": "Dual Universe",
   "EVE Online": "EVE Online",
   "FFXIV": "FFXIV",
   "Guild Wars 2": "Guild Wars 2",
