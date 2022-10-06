@@ -4,7 +4,7 @@
   "description": "Running Dawn discord bot",
   "main": "app.js",
   "author": "Vealor",
-  "license": "All rights reserved",
+  "license": "UNLICENSED",
   "repository": "git@github.com:RunningDawn/the-broker.git",
   "bugs": {
     "url": "https://github.com/RunningDawn/the-broker/issues"
@@ -27,12 +27,12 @@
   },
   "scripts": {
     "dev-setup": "yarn install",
-    "dev-log": "nodemon bot.js | bunyan",
+    "dev-log": "nodemon -L bot.js | bunyan",
     "dev": "nodemon bot.js",
 
     "test": "echo \"Error: no test specified\" && exit 1",
 
     "prod-setup": "yarn install --production=true",
-    "prod": "nodemon bot.js"
+    "prod": "nodemon -L bot.js"
   }
 }
