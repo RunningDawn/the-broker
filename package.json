@@ -28,7 +28,7 @@
   "scripts": {
     "dev-setup": "yarn install",
     "dev-log": "nodemon -L bot.js | bunyan",
-    "dev": "nodemon bot.js",
+    "dev": "nodemon -L bot.js",
 
     "test": "echo \"Error: no test specified\" && exit 1",
 
