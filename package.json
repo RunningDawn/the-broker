@@ -4,7 +4,7 @@
   "description": "Running Dawn discord bot",
   "main": "app.js",
   "author": "Vealor",
-  "license": "All rights reserved",
+  "license": "UNLICENSED",
   "repository": "git@github.com:RunningDawn/the-broker.git",
   "bugs": {
     "url": "https://github.com/RunningDawn/the-broker/issues"
