@@ -27,12 +27,12 @@
   },
   "scripts": {
     "dev-setup": "yarn install",
-    "dev-log": "nodemon bot.js | bunyan",
+    "dev-log": "nodemon -L bot.js | bunyan",
     "dev": "nodemon bot.js",
 
     "test": "echo \"Error: no test specified\" && exit 1",
 
     "prod-setup": "yarn install --production=true",
-    "prod": "nodemon bot.js"
+    "prod": "nodemon -L bot.js"
   }
 }
