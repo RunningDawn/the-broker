@@ -32,10 +32,12 @@ const games_rts = {
 const games_moba = {
   "ALL": "ALL",
   "League of Legends": "League of Legends",
+  "Warlander": "Warlander",
 };
 const games_rpg = {
   "ALL": "ALL",
   "Diablo": "Diablo",
+  "Divinity Original Sin": "Divinity Original Sin",
   "Elden Ring": "Elden Ring",
   "Grim Dawn": "Grim Dawn",
   "Monster Hunter": "Monster Hunter",
