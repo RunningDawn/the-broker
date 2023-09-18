@@ -8,8 +8,7 @@ module.exports = {
 
     const commands = [
       "/help **=>** *this command! it lists the available commands*",
-      "/game list **=>** *provides a list of available games to join*",
-      "/game <join/leave> <game_type/all> <game_name> **=>** *join a game channel on the server*",
+      "Unfortunately there are no other commands right now!",
       "The bot will show suggestions just like @'ing someone. It also works to autofill with tab. It will autofill selected suggestion and this is normally the top suggestion. You are able to use keyboard arrows to move up and down on the list before pressing tab to select the desired command."
     ];
 
