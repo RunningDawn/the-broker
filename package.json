@@ -33,6 +33,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
 
     "prod-setup": "yarn install --production=true",
-    "prod": "nodemon -L bot.js"
+    "prod": "node bot.js"
   }
 }
