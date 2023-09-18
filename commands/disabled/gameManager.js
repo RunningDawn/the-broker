@@ -10,7 +10,7 @@ const {
   games_craftlike,
   games_roguelike,
   games_mobile,
-  flatten_games } = require("../util/games_list.js");
+  flatten_games } = require("../../util/games_list.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
