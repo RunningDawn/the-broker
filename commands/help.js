@@ -17,7 +17,7 @@ module.exports = {
       outmsg += `${comm}\n\n`;
     }
 
-    interaction.reply({
+    await interaction.reply({
       content: outmsg,
       ephemeral: true
     });
